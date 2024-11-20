@@ -1,57 +1,61 @@
-/* Limite la largeur maximale de l'image à 100% de son conteneur - https://developer.mozilla.org/fr/docs/Web/CSS/max-width */
-/* Ajuste la hauteur de l'image automatiquement pour conserver les proportions - https://developer.mozilla.org/fr/docs/Web/CSS/height */
+/* Limite la largeur maximale de l'image à 100% de son conteneur */
 img {
   max-width: 100%;
-  height: auto;
+  height: auto; /* Ajuste la hauteur automatiquement pour conserver les proportions */
 }
 
-/* Mise en forme du carousel en CSS.
-Utiliser flex pour positionner les item du carousel les uns à coté des autres.
-La propriété "overflow-x" avec la valeur "scroll" permet rogner le contenu afin de tenir horizontalement dans la boîte de remplissage et d'ajouter un scroll horizontal si le contenu déborde.
-https://developer.mozilla.org/fr/docs/Web/CSS/overflow-x
-
-La propriété "scroll-snap-type" définit la force d'adhérence aux points d'accroche en cas de défilement d'un conteneur
-https://developer.mozilla.org/fr/docs/Web/CSS/scroll-snap-type
-
-Les margin négatifs à gauche et à droite corresponde à l'éespace entre le navigateur et le début du contenu, de sorte que le carousel soit collé au bords de l'écran.
-
-*/
-
-/* Compléter la suite du code */
-.carousel__controls {
-  /* Utilise flexbox pour aligner les éléments enfants - https://developer.mozilla.org/fr/docs/Web/CSS/display */
-  /* Espace entre les éléments enfants 16px- https://developer.mozilla.org/fr/docs/Web/CSS/gap */
-  /* Aligne les éléments enfants au centre verticalement - https://developer.mozilla.org/fr/docs/Web/CSS/align-items */
-  /* Centre les éléments enfants horizontalement - https://developer.mozilla.org/fr/docs/Web/CSS/justify-content */
-  /* Marge de 16px en haut et en bas - https://developer.mozilla.org/fr/docs/Web/CSS/margin */
-}
-.carousel__button {
-  /* Largeur du bouton 50px - https://developer.mozilla.org/fr/docs/Web/CSS/width */
-  /* Hauteur du bouton 50px - https://developer.mozilla.org/fr/docs/Web/CSS/height */
-  /* Utilise flexbox pour aligner le contenu du bouton - https://developer.mozilla.org/fr/docs/Web/CSS/display */
-  /* Aligne le contenu du bouton au centre verticalement - https://developer.mozilla.org/fr/docs/Web/CSS/align-items */
-  /* Centre le contenu du bouton horizontalement - https://developer.mozilla.org/fr/docs/Web/CSS/justify-content */
-  /* Bordure solide de 1px - https://developer.mozilla.org/fr/docs/Web/CSS/border */
-  /* Bordure arrondie pour faire un cercle - https://developer.mozilla.org/fr/docs/Web/CSS/border-radius */
-}
-.carousel__button--prev {
-  /* Fait pivoter le bouton de 180 degrés - https://developer.mozilla.org/fr/docs/Web/CSS/transform */
-}
-
+/* Mise en forme du carousel */
 .carousel__container {
-  /* Utilise flexbox pour aligner les éléments enfants - https://developer.mozilla.org/fr/docs/Web/CSS/display */
-  /* Espace entre les éléments enfants 16px - https://developer.mozilla.org/fr/docs/Web/CSS/gap */
-  /* Ajoute un défilement horizontal si le contenu déborde - https://developer.mozilla.org/fr/docs/Web/CSS/overflow */
-  /* Marge négative à gauche pour coller le carousel au bord de l'écran -24px - https://developer.mozilla.org/fr/docs/Web/CSS/margin */
-  /* Marge négative à droite pour coller le carousel au bord de l'écran -24px - https://developer.mozilla.org/fr/docs/Web/CSS/margin */
-  /* Définit le type de défilement pour accrocher les éléments - https://developer.mozilla.org/fr/docs/Web/CSS/scroll-snap-type */
+  display: flex; /* Aligne les items en ligne */
+  gap: 16px; /* Espace entre les items */
+  overflow-x: auto; /* Active le défilement horizontal */
+  scroll-snap-type: x mandatory; /* Permet l'ancrage des items pour un défilement fluide */
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Style des items du carrousel */
 .carousel__item {
-  /* L'élément prend 1 part de l'espace disponible, ne rétrécit pas, et a une largeur de base de 260px - https://developer.mozilla.org/fr/docs/Web/CSS/flex */
-  /* Aligne l'élément au centre lors du défilement - https://developer.mozilla.org/fr/docs/Web/CSS/scroll-snap-align */
+  flex: 0 0 260px; /* Largeur fixe des items */
+  scroll-snap-align: start; /* Les items s'alignent au début lors du défilement */
 }
 
 .carousel__item img {
-  /* Affiche l'image comme un bloc - https://developer.mozilla.org/fr/docs/Web/CSS/display */
+  display: block; /* Affiche l'image comme un bloc */
+  max-width: 100%; /* L'image prend toute la largeur disponible */
+  height: auto; /* Conserve les proportions */
+}
+
+/* Contrôles du carrousel */
+.carousel__controls {
+  display: flex; /* Utilise flexbox pour aligner les boutons */
+  gap: 16px; /* Espacement entre les boutons */
+  align-items: center; /* Centre verticalement les boutons */
+  justify-content: center; /* Centre horizontalement les boutons */
+  margin: 16px 0; /* Marge en haut et en bas */
+}
+
+/* Boutons du carrousel */
+.carousel__button {
+  width: 50px; /* Largeur des boutons */
+  height: 50px; /* Hauteur des boutons */
+  display: flex; /* Utilise flexbox pour aligner le contenu */
+  justify-content: center; /* Centre horizontalement le contenu */
+  align-items: center; /* Centre verticalement le contenu */
+  border: 2px solid #000; /* Bordure noire solide */
+  border-radius: 50%; /* Forme circulaire */
+  background-color: #fff; /* Fond blanc */
+  cursor: pointer; /* Curseur de clic */
+  transition: background-color 0.3s, border-color 0.3s; /* Transition fluide */
+}
+
+/* Effet au survol */
+.carousel__button:hover {
+  background-color: #ddd; /* Change la couleur du fond au survol */
+  border-color: #666; /* Change la couleur de la bordure au survol */
+}
+
+/* Bouton précédent : rotation */
+.carousel__button--prev {
+  transform: rotate(180deg); /* Fait pivoter le bouton de 180 degrés */
 }
