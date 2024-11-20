@@ -1,5 +1,3 @@
-//// CSS : Style pour rendre le défilement fluide. ////
-
 /* Limite la largeur maximale de l'image à 100% de son conteneur */
 img {
   max-width: 100%;
@@ -14,6 +12,7 @@ img {
   scroll-snap-type: x mandatory; /* Permet l'ancrage des items pour un défilement fluide */
   margin-left: auto;
   margin-right: auto;
+  scroll-behavior: smooth; /* Active le défilement fluide */
 }
 
 /* Style des items du carrousel */
@@ -60,12 +59,4 @@ img {
 /* Bouton précédent : rotation */
 .carousel__button--prev {
   transform: rotate(180deg); /* Fait pivoter le bouton de 180 degrés */
-}
-
-.carousel__container {
-  scroll-behavior: smooth; /* Active le défilement fluide */
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
 }
