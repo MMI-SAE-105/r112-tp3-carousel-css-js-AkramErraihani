@@ -1,3 +1,5 @@
+//// CSS : Style pour rendre le défilement fluide. ////
+
 /* Limite la largeur maximale de l'image à 100% de son conteneur */
 img {
   max-width: 100%;
