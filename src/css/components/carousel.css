@@ -61,3 +61,11 @@ img {
 .carousel__button--prev {
   transform: rotate(180deg); /* Fait pivoter le bouton de 180 degrés */
 }
+
+.carousel__container {
+  scroll-behavior: smooth; /* Active le défilement fluide */
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
